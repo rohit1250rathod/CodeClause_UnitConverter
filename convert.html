@@ -1,69 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="convert.css">
-</head>
-<body>
+    <link rel="stylesheet" href="convert.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Unit Converter</h1>
+    </header>
     <div class="convert">
-        <div class="wrapper">
-            <input type="radio" name="slider" id="len">
-        <input type="radio" name="slider" id="temp">
-        <input type="radio" name="slider" id="area">
-        <input type="radio" name="slider" id="vol">
-        <input type="radio" name="slider" id="wght">
-        <input type="radio" name="slider" id="time">
-        <nav>
-            <label for="len" class="len">Length</label>
-            <label for="temp" class="temp">Temperature</label>
-            <label for="area" class="area">Area</label>
-            <label for="vol" class="vol">Volume</label>
-            <label for="]wght" class="]wght">Weight</label>
-            <label for="time" class="time">Time</label>
-        </nav>
-        </div>
-        
-        <div class="box">
-            <div class="boxflex">
-                <div class="label-input">
-                    <label for="amount">Amount</label>
-                <input type="text" id="amount">
-                </div>
-                <div class="label-input">
-                <label for="operand1">From</label>
-                <select name="" id="operand1">
-                    <option value="">kilometre</option>
-                    <option value="">metre</option>
-                    <option value="">Centimetre</option>
-                    <option value="">Millimetre</option>
-                    <option value="">Micrometre</option>
-                    <option value="">foot</option>
-                    <option value="">miles</option>
-                    <option value="">inches</option>
-                </select>
+      <input type="radio" name="slider" id="len" checked />
+      <input type="radio" name="slider" id="temp" />
+      <input type="radio" name="slider" id="area" />
+      <input type="radio" name="slider" id="wght" />
+      <input type="radio" name="slider" id="time" />
+      <nav>
+        <label for="len" class="len">Length</label>
+        <label for="temp" class="temp">Temperature</label>
+        <label for="area" class="area">Area</label>
+        <label for="wght" class="wght">Weight</label>
+        <label for="time" class="time">Time</label>
+        <div class="slider"></div>
+      </nav>
+
+      <div class="box">
+        <div class="boxflex">
+          <div class="content content-1">
+            <div class="label-input">
+              <label for="amount">Amount</label>
+              <input
+                type="number"
+                placeholder="0"
+                id="length"
+                class="amountt"
+                onkeyup="getlenunit()"
+              />
             </div>
             <div class="label-input">
-                <label for="operand2">From:</label>
-                <select name="" id="operand2">
-                    <option value="">kilometre</option>
-                    <option value="">metre</option>
-                    <option value="">Centimetre</option>
-                    <option value="">Millimetre</option>
-                    <option value="">Micrometre</option>
-                    <option value="">foot</option>
-                    <option value="">miles</option>
-                    <option value="">inches</option>
-                </select>
-                </div>
-                <span>Result :</span>
-                <input type="Submit">
+              <label for="operand1">From :</label>
+              <select id="len1" class="amountt">
+                <option value="kilometer">kilometre</option>
+                <option value="meter">metre</option>
+                <option value="centimeter">Centimetre</option>
+                <option value="millimeter">Millimetre</option>
+                <option value="foot">foot</option>
+                <option value="miles">miles</option>
+                <option value="inches">inches</option>
+              </select>
             </div>
-           
+            <div class="label-input">
+              <label for="operand2">To:</label>
+              <select name="" id="len2" class="amountt">
+                <option value="kilometer">kilometre</option>
+                <option value="meter">metre</option>
+                <option value="centimeter">Centimetre</option>
+                <option value="millimeter">Millimetre</option>
+                <option value="foot">foot</option>
+                <option value="miles">miles</option>
+                <option value="inches">inches</option>
+              </select>
+            </div>
+            <label for="">Result :</label>
+            <input type="text" id="result" class="amountt" placeholder="0" />
+          </div>
+          <div class="content content-2">
+            <div class="label-input">
+              <label for="amount">Amount</label>
+              <input
+                type="number"
+                placeholder="0"
+                id="Temp"
+                class="amountt"
+                onkeyup="getTempunit()"
+              />
+            </div>
+            <div class="label-input">
+              <label for="operand1">From :</label>
+              <select id="temp1" class="amountt">
+                <option value="celsius">Celsius</option>
+                <option value="fehrenite">Fehrenite</option>
+                <option value="kelvin">Kelvin</option>
+              </select>
+            </div>
+            <div class="label-input">
+              <label for="operand2">To :</label>
+              <select name="" id="temp2" class="amountt">
+                <option value="celsius">Celsius</option>
+                <option value="fehrenite">Fehrenite</option>
+                <option value="kelvin">Kelvin</option>
+              </select>
+            </div>
+            <label for="">Result :</label>
+            <input type="text" id="result1" class="amountt" placeholder="0" />
+          </div>
+          <div class="content content-3">
+            <div class="label-input">
+              <label for="amount">Amount</label>
+              <input
+                type="number"
+                placeholder="0"
+                id="Area"
+                class="amountt"
+                onkeyup="getAreaunit()"
+              />
+            </div>
+            <div class="label-input">
+              <label for="operand1">From :</label>
+              <select id="area1" class="amountt">
+                <option value="squaremeter">square Meter</option>
+                <option value="squarefoot">Square Foot</option>
+                <option value="acre">Acre</option>
+              </select>
+            </div>
+            <div class="label-input">
+              <label for="operand2">To :</label>
+              <select name="" id="area2" class="amountt">
+                <option value="squaremeter">Square Meter</option>
+                <option value="squarefoot">Square foot</option>
+                <option value="acre">Acre</option>
+              </select>
+            </div>
+            <label for="">Result :</label>
+            <input type="text" id="result2" class="amountt" placeholder="0" />
+          </div>
+          <div class="content content-4">
+            <div class="label-input">
+              <label for="amount">Amount</label>
+              <input
+                type="number"
+                placeholder="0"
+                id="Weight"
+                class="amountt"
+                onkeyup="getWeight()"
+              />
+            </div>
+            <div class="label-input">
+              <label for="weight1">From :</label>
+              <select id="weight1" class="amountt">
+                <option value="kilogram">kilogram</option>
+                <option value="gram">gram</option>
+                <option value="pound">Pound</option>
+                <option value="ton">ton</option>
+              </select>
+            </div>
+            <div class="label-input">
+              <label for="weight2">To :</label>
+              <select id="weight2" class="amountt">
+                <option value="kilogram">kilogram</option>
+                <option value="gram">gram</option>
+                <option value="pound">Pound</option>
+                <option value="ton">ton</option>
+              </select>
+            </div>
+            <label for="">Result :</label>
+            <input type="text" id="result4" class="amountt" placeholder="0" />
+          </div>
+          <div class="content content-5">
+            <div class="label-input">
+              <label for="amount">Amount</label>
+              <input
+                type="number"
+                placeholder="0"
+                id="Time"
+                class="amountt"
+                onkeyup="getTime()"
+              />
+            </div>
+            <div class="label-input">
+              <label for="operand1">From :</label>
+              <select id="time1" class="amountt">
+                <option value="second">Second</option>
+                <option value="minute">Minute</option>
+                <option value="hour">Hour</option>
+                <option value="day">Day</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+              </select>
+            </div>
+            <div class="label-input">
+              <label for="operand2">To :</label>
+              <select name="" id="time2" class="amountt">
+                <option value="second">Second</option>
+                <option value="minute">Minute</option>
+                <option value="hour">Hour</option>
+                <option value="day">Day</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+              </select>
+            </div>
+            <label for="">Result :</label>
+            <input type="text" id="result5" class="amountt" placeholder="0" />
+          </div>
         </div>
-        
+      </div>
     </div>
-</body>
+    <script src="convertt.js"></script>
+  </body>
 </html>
